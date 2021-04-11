@@ -121,6 +121,8 @@ nav ul li a:hover{
 .active{
 	background-color: rgb(113, 96, 155);
 	width: 100%;
+	border-left: 10px solid rebeccapurple;
+	/* border-right: 10px solid white; */
 }
 
 /*Style the images*/
@@ -193,7 +195,7 @@ h3{
     background-repeat: no-repeat;
     background-size: cover; 
     min-height: 400px;
-    background-image: url("../imgs/travel.JPG");
+    background-image: url("../imgs/travel.jpg");
     grid-column: 1 / -1;
 	grid-row: 3 / auto;
 }
@@ -254,7 +256,7 @@ h3{
 }
 
   /* My Hobby Page */
-.container{
+.aboutme_container{
 	background-color: lavender;
 	display: grid;	
 	-webkit-grid-template-columns: 1fr;
@@ -332,4 +334,73 @@ div:hover .card-title{
 	align-items: center;
 	padding-top: 20px;
 	font-family: Bradley Hand, cursive;
+	color: blanchedalmond;
 }
+
+a.skip{
+	background: white;
+	left: 0;
+	padding: 6px;
+	position: absolute;
+	top: -40px;
+	-webkit-transition: top 1s ease-out;
+	transition: top 1s ease-out;
+	z-index: 1;
+  }
+  
+  a.skip:focus{
+	top: 20px;
+	color: black;
+	text-decoration-style: solid;
+  }
+
+@media screen and (min-width: 680px) {
+	.mobile_only{
+		display: none;
+	}
+
+	header{
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.nav_links{
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+    .aboutme{
+		display: flex;
+		flex-direction: column;	
+	}
+
+	.play_the_piano, .travel, .photograph{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 30px;
+		padding: 10px 10pc 50px 10px;
+		justify-content: center;
+	}
+
+	.card0{
+		grid-column: 1 / span 2;
+		grid-row: 1 / span 1;
+	}
+
+	.card4{
+		grid-column: 1 / span 2;
+		grid-row: 1 / span 1;
+	}
+
+	.card9{
+		grid-column: 1 / span 2;
+		grid-row: 1 / span 1;
+	}
+
+	.contacts{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+}
+
