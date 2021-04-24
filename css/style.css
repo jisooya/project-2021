@@ -1,3 +1,7 @@
+html{
+	scroll-behavior: smooth;
+}
+
 header, footer{
 	text-align: center;
 	background-color: #a080b9;
@@ -125,10 +129,10 @@ nav ul li a:hover{
 	/* border-right: 10px solid white; */
 }
 
-/*Style the images*/
+/*Index Page*/
 .profile-picture {
 	border-radius: 50%;
-	width: 90%;
+	width: 50%;
 	height: auto;
 }
 
@@ -158,21 +162,111 @@ h3{
 	font-weight: bold;
 }
 
+.cards_container{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.flip_cards, .flip_card{
+	width: 300px;
+	height: 450px;
+	margin: 15px;
+}
+  
+.flip_card{
+	position: relative;
+	transition: transform 0.8s;
+	-webkit-transition: transform 0.8s;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	text-align: center;
+}
+
+.flip_cards:hover .flip_card {
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+}
+
+.front_card{
+	background-color: #bbb;
+	color: black;
+}
+
+.front_card img{
+	width: 300px;
+	height: 450px;
+	border: 2px solid #713aa3;
+}
+
+.back_card{
+	background-color: rgb(113, 96, 155);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+}
+
+.back_card h2{
+	color: white;
+	font-size: 30px;
+	margin: 30px;
+	font-family: Bradley Hand, cursive;
+}
+
+.front_card, .back_card{
+	position: absolute;
+	width: 300px;
+	height: 450px;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.flip_cards:hover .flip_card,
+.flip_cards:focus-within .flip_card,
+.flip_cards:active .flip_card,
+.flip_cards:focus .flip_card{
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.learn_more{
+	color:white;
+	background-color: rgb(60, 16, 131);
+	padding: 10px;
+	text-decoration: none;
+}
+
+.learn_more:hover{
+	text-decoration: underline;
+}
+
+.learn_more:active{
+	border: double #ebec86;
+	text-decoration: underline;
+}
+
   /* My Experience Page */
 .exp_container{
 	display: grid;
 	grid-template-columns: 1fr 5fr 1fr;
 	grid-gap: 15px;
+	background-color: lavender;
 }
 
-.opening{
+.parallax_1{
+	background-image: url("../imgs/background.jpg");
+	min-height: 400px;
+
+	/* Create the parallax scrolling effect. */
 	background-attachment: fixed;
-	background-position: center; 
-	background-color: darkblue;
+	background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
-    min-height: 400px;
-    background-image: url("../imgs/background.jpg");
+    
     grid-column: 1 / -1;
 	grid-row: 1 / auto;
 }
@@ -182,25 +276,27 @@ h3{
 	color: whitesmoke;
     font-weight: bold;
 }
-.opening p{
+.parallax_1 p{
 	align-self: center;
 	justify-self: center;
 	color: whitesmoke;
 }
 
-.middle{
+.parallax_2{
+	background-image: url("../imgs/travel.jpg");
+	min-height: 400px;
+
+	/* Create the parallax scrolling effect. */
 	background-attachment: fixed;
 	background-position: center;
-	background-color: darkred; 
     background-repeat: no-repeat;
-    background-size: cover; 
-    min-height: 400px;
-    background-image: url("../imgs/travel.jpg");
+	background-size: cover;
+
     grid-column: 1 / -1;
 	grid-row: 3 / auto;
 }
 
-.middle p{
+.parallax_2 p{
 	padding: 30px;
     font-weight: bold;
     font-size: 50px;
@@ -210,7 +306,7 @@ h3{
 	color: whitesmoke;
 }
 
-.middle img{
+.parallax_2 img{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -325,6 +421,9 @@ div:hover .card-title{
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	margin-top: 20px;
+	margin-left: 50px;
+	position: relative;
 }
 
 .contacts p{
@@ -435,6 +534,14 @@ label{
 		justify-content: space-between;
 	}
 
+	.cards_container{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 30px;
+	}
+
     .aboutme{
 		display: flex;
 		flex-direction: column;	
@@ -494,7 +601,21 @@ label{
 }
 
 @media (prefers-reduced-motion: reduce){
+	html{
+		scroll-behavior: auto;
+	}
+
 	#logo{
 		animation: none;
+	}
+
+	.flip_cards .flip_card{
+		transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+	}
+
+	.parallax_1, .parallax_2{
+		background-attachment: initial;
+		background-size: contain;
 	}
 }
