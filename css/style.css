@@ -416,6 +416,14 @@ div:hover .card-title{
 	align-items: center;
 }
 
+.contact_title{
+	display: flex;
+	font-family: Bradley Hand, cursive;
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
+}
+
 .contacts{
 	display: flex;
 	flex-direction: row;
